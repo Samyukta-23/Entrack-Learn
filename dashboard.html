@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EntreVerse Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background-color: #4A90E2;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Dashboard Section */
+    .dashboard {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dashboard h2 {
+      font-size: 2rem;
+      color: #4A90E2;
+      margin-bottom: 1.5rem;
+    }
+
+    .dashboard p {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 0.5rem 0;
+    }
+
+    .dashboard span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 80%;
+      background-color: #e0e0e0;
+      border-radius: 12px;
+      margin: 1.5rem auto;
+      position: relative;
+      height: 30px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: #4A90E2;
+      border-radius: 12px;
+      width: 75%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 0.5s ease;
+    }
+
+    .progress-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      color: #fff;
+      top: 4px;
+    }
+
+    /* Achievement Badges */
+    .achievements {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .badge {
+      text-align: center;
+    }
+
+    .badge i {
+      font-size: 3rem;
+      color: #f1c40f;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Leaderboard */
+    .leaderboard {
+      margin-top: 3rem;
+      background-color: #fafafa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .leaderboard h3 {
+      color: #4A90E2;
+      margin-bottom: 1rem;
+    }
+
+    .leaderboard p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #4A90E2;
+      color: white;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Chatbot Button Styles */
+    .chatbot-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .chatbot-btn:hover {
+      transform: scale(1.1);
+      background-color: #357ABD;
+    }
+
+    /* Chatbot Popup */
+    #chatbot-popup {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 400px;
+      height: 500px;
+      border: none;
+      z-index: 9999;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="chatbot-btn" onclick="toggleChatbot()">
+    💬 Chat with us
+  </button>
+
+  <div id="chatbot-popup">
+    <iframe src="http://localhost:8501" width="100%" height="100%" style="border:none;"></iframe>
+  </div>
+
+  <header>
+    <h1>Your Dashboard</h1>
+  </header>
+
+  <section class="dashboard">
+    <h2>Your Progress</h2>
+
+    <p>Category: <span id="category">Intermediate</span></p>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+      <div class="progress-text" id="progress-text">75% Complete</div>
+    </div>
+
+    <p>Classes completed: <span id="classes">3/4</span></p>
+    <p>Upcoming Test: <span id="test-date">Friday</span></p>
+
+    <div class="achievements">
+      <div class="badge">
+        <i class="fas fa-medal"></i>
+        <p>Completed 3 Classes</p>
+      </div>
+      <div class="badge">
+        <i class="fas fa-star"></i>
+        <p>Top Scorer</p>
+      </div>
+      <div class="badge">
+        <i class="fas fa-trophy"></i>
+        <p>Entrepreneurship Award</p>
+      </div>
+    </div>
+
+    <div class="leaderboard">
+      <h3>Your Ranking</h3>
+      <p>Rank: <strong>5th</strong> out of 100 participants</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 EntreVerse. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const progress = 75; 
+    document.getElementById('progress-bar').style.width = progress + '%';
+
+    document.getElementById('progress-text').textContent = progress + '% Complete';
+
+    function toggleChatbot() {
+      const chatbot = document.getElementById('chatbot-popup');
+      if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+        chatbot.style.display = 'block';
+      } else {
+        chatbot.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>

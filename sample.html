@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamified Learning Path</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #4A90E2;
+    }
+
+    .module {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-container {
+      margin-top: 1rem;
+    }
+
+    .question {
+      margin-bottom: 1rem;
+    }
+
+    .answers {
+      margin-left: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .reveal-answer {
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Gamified Learning Path</h1>
+
+    <!-- Module 1 -->
+    <div class="module">
+      <h2>Module 1: E-commerce Fundamentals and Platform Setup</h2>
+      <p>B2C, B2B, C2C, and C2B models. Comparison of e-commerce platforms (Shopify, WooCommerce, Magento). Setting up a Shopify store. Basic e-commerce operations (Inventory management, order fulfillment).</p>
+
+      <!-- Quiz for Module 1 -->
+      <div class="quiz-container">
+        <h3>Quiz</h3>
+        <div class="question">
+          <p>1. Which of the following is NOT a common e-commerce model?</p>
+          <div class="answers">
+            <label>
+              <input type="checkbox" name="question1" value="A"> A) B2C
+            </label><br>
+            
+            <label>
+              <input type="checkbox" name="question1" value="B"> B) C2C
+            </label><br>
+            
+            <label>
+              <input type="checkbox" name="question1" value="C"> C) B2G
+            </label><br>
+            
+            <label>
+              <input type="checkbox" name="question1" value="D"> D) C2B
+            </label><br>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(1)">Show Answer</button>
+          <p class="answer" id="answer-1">Correct Answer: C) B2G</p>
+        </div>
+
+        <div class="question">
+          <p>2. What is one of the main advantages of using Shopify as an e-commerce platform?</p>
+          <div class="answers">
+            <label> <input type="checkbox" name="question2" value="A"> A) Requires extensive coding knowledge</label><br>
+            <label> <input type="checkbox" name="question2" value="B"> B) No hosting options available</label><br>
+            <label> <input type="checkbox" name="question2" value="C"> C) User-friendly interface with easy setup</label><br>
+            <label> <input type="checkbox" name="question2" value="D"> D) Limited payment gateway options</label><br>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(2)">Show Answer</button>
+          <p class="answer" id="answer-2">Correct Answer: C) User-friendly interface with easy setup</p>
+        </div>
+
+        <div class="question">
+          <p>3. In inventory management, what does "just-in-time" inventory mean?</p>
+          <div class="answers">
+            <label> <input type="checkbox" name="question3" value="A"> A) Keeping large quantities of stock on hand</label><br>
+            <label> <input type="checkbox" name="question3" value="B"> B) Ordering inventory only as it is needed</label><br>
+            <label> <input type="checkbox" name="question3" value="C"> C) Selling products before they are manufactured</label><br>
+            <label> <input type="checkbox" name="question3" value="D"> D) Using automated systems to manage stock</label><br>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(3)">Show Answer</button>
+          <p class="answer" id="answer-3">Correct Answer: B) Ordering inventory only as it is needed</p>
+        </div>
+
+        <div class="question">
+          <p>4. Which of the following steps is NOT part of the order fulfillment process?</p>
+          <div class="answers">
+            <label> <input type="checkbox" name="question4" value="A"> A) Picking the product from inventory</label><br>
+            <label> <input type="checkbox" name="question4" value="B"> B) Packing the product for shipping</label><br>
+            <label> <input type="checkbox" name="question3" value="C"> C) Creating a marketing strategy</label><br>
+            <label> <input type="checkbox" name="question4" value="D"> D) Shipping the product to the customer</label><br>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(4)">Show Answer</button>
+          <p class="answer" id="answer-4">Correct Answer: C) Creating a marketing strategy</p>
+        </div>
+
+        <div class="question">
+          <p>5. Which of the following platforms is known for its flexibility and extensive customization options for e-commerce?</p>
+          <div class="answers">
+            <label> <input type="checkbox" name="question5" value="A"> A) Shopify</label><br>
+            <label> <input type="checkbox" name="question5" value="B"> B) WooCommerce</label><br>
+            <label> <input type="checkbox" name="question5" value="C"> C) Magento</label><br>
+            <label> <input type="checkbox" name="question5" value="D"> D) BigCommerce</label><br>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(5)">Show Answer</button>
+          <p class="answer" id="answer-5">Correct Answer: C) Magento</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module 2 -->
+    <div class="module">
+      <h2>Module 2: Digital Marketing Strategies for E-commerce</h2>
+      <p>SEO, Social media marketing, Email marketing, Performance metrics for e-commerce.</p>
+
+      <!-- Quiz for Module 2 -->
+      <div class="quiz-container">
+        <h3>Quiz</h3>
+        <div class="question">
+          <p>1. What is the primary goal of keyword research in SEO?</p>
+          <div class="answers">
+            <p>A) To find the best products to sell</p>
+            <p>B) To identify terms that potential customers use in search engines</p>
+            <p>C) To create social media posts</p>
+            <p>D) To design the website layout</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(6)">Show Answer</button>
+          <p class="answer" id="answer-6">Correct Answer: B) To identify terms that potential customers use in search engines</p>
+        </div>
+
+        <div class="question">
+          <p>2. Which of the following is a key benefit of backlinks in SEO?</p>
+          <div class="answers">
+            <p>A) They increase website loading speed</p>
+            <p>B) They help improve search engine rankings</p>
+            <p>C) They reduce the need for content marketing</p>
+            <p>D) They eliminate the need for social media marketing</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(7)">Show Answer</button>
+          <p class="answer" id="answer-7">Correct Answer: B) They help improve search engine rankings</p>
+        </div>
+
+        <div class="question">
+          <p>3. Which social media platform is primarily visual and effective for e-commerce marketing?</p>
+          <div class="answers">
+            <p>A) Twitter</p>
+            <p>B) LinkedIn</p>
+            <p>C) Instagram</p>
+            <p>D) Reddit</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(8)">Show Answer</button>
+          <p class="answer" id="answer-8">Correct Answer: C) Instagram</p>
+        </div>
+
+        <div class="question">
+          <p>4. What is a key feature of email marketing automation?</p>
+          <div class="answers">
+            <p>A) Sending emails manually to each customer</p>
+            <p>B) Automatically sending targeted emails based on user behavior</p>
+            <p>C) Creating a single email for all customers</p>
+            <p>D) Ignoring customer responses</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(9)">Show Answer</button>
+          <p class="answer" id="answer-9">Correct Answer: B) Automatically sending targeted emails based on user behavior</p>
+        </div>
+
+        <div class="question">
+          <p>5. Which metric is commonly used to measure the effectiveness of an e-commerce marketing campaign?</p>
+          <div class="answers">
+            <p>A) Number of products available</p>
+            <p>B) Conversion rate</p>
+            <p>C) Total website visits</p>
+            <p>D) Number of social media followers</p>
+          </div>
+          <button class
+          class="reveal-answer" onclick="revealAnswer(10)">Show Answer</button>
+          <p class="answer" id="answer-10">Correct Answer: B) Conversion rate</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module 3 -->
+    <div class="module">
+      <h2>Module 3: Financial Management for E-commerce</h2>
+      <p>Understanding financial statements, budgeting and forecasting, funding options, cash flow management.</p>
+
+      <!-- Quiz for Module 3 -->
+      <div class="quiz-container">
+        <h3>Quiz</h3>
+        <div class="question">
+          <p>1. What does an income statement primarily show?</p>
+          <div class="answers">
+            <p>A) The total assets of a business</p>
+            <p>B) The company's profitability over a specific period</p>
+            <p>C) The cash flow situation of a business</p>
+            <p>D) The number of products sold</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(11)">Show Answer</button>
+          <p class="answer" id="answer-11">Correct Answer: B) The company's profitability over a specific period</p>
+        </div>
+
+        <div class="question">
+          <p>2. Which of the following is a common method for budgeting in e-commerce?</p>
+          <div class="answers">
+            <p>A) Zero-based budgeting</p>
+            <p>B) Random budgeting</p>
+            <p>C) Historical budgeting</p>
+            <p>D) Incremental budgeting</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(12)">Show Answer</button>
+          <p class="answer" id="answer-12">Correct Answer: A) Zero-based budgeting</p>
+        </div>
+
+        <div class="question">
+          <p>3. Which funding option involves using personal savings to start a business?</p>
+          <div class="answers">
+            <p>A) Venture capital</p>
+            <p>B) Bootstrapping</p>
+            <p>C) Crowdfunding</p>
+            <p>D) Bank loans</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(13)">Show Answer</button>
+          <p class="answer" id="answer-13">Correct Answer: B) Bootstrapping</p>
+        </div>
+
+        <div class="question">
+          <p>4. What is the primary purpose of cash flow management?</p>
+          <div class="answers">
+            <p>A) To increase sales revenue</p>
+            <p>B) To ensure that a business has enough cash to meet its obligations</p>
+            <p>C) To reduce marketing costs</p>
+            <p>D) To manage inventory levels</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(14)">Show Answer</button>
+          <p class="answer" id="answer-14">Correct Answer: B) To ensure that a business has enough cash to meet its obligations</p>
+        </div>
+
+        <div class="question">
+          <p>5. Which of the following is NOT typically included in a financial statement?</p>
+          <div class="answers">
+            <p>A) Revenue</p>
+            <p>B) Expenses</p>
+            <p>C) Marketing strategies</p>
+            <p>D) Net income</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(15)">Show Answer</button>
+          <p class="answer" id="answer-15">Correct Answer: C) Marketing strategies</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module 4 -->
+    <div class="module">
+      <h2>Module 4: Data Analysis and Performance Optimization</h2>
+      <p>Introduction to data analytics, setting up Google Analytics, analyzing performance metrics, using data to drive business decisions.</p>
+
+      <!-- Quiz for Module 4 -->
+      <div class="quiz-container">
+        <h3>Quiz</h3>
+        <div class="question">
+          <p>1. What is the primary focus of data analytics in e-commerce?</p>
+          <div class="answers">
+            <p>A) To create product designs</p>
+            <p>B) To make data-driven decisions based on customer behavior and sales trends</p>
+            <p>C) To increase website traffic without analyzing data</p>
+            <p>D) To manage social media accounts</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(16)">Show Answer</button>
+          <p class="answer" id="answer-16">Correct Answer: B) To make data-driven decisions based on customer behavior and sales trends</p>
+        </div>
+
+        <div class="question">
+          <p>2. What is the first step in setting up Google Analytics for an e-commerce website?</p>
+          <div class="answers">
+            <p>A) Creating a Google account</p>
+            <p>B) Installing the Google Analytics tracking code on the website</p>
+            <p>C) Generating reports</p>
+            <p>D) Analyzing competitor data</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(17)">Show Answer</button>
+          <p class="answer" id="answer-17">Correct Answer: B) Installing the Google Analytics tracking code on the website</p>
+        </div>
+
+        <div class="question">
+          <p>3. Which of the following metrics is used to measure the percentage of visitors who complete a desired action on a website?</p>
+          <div class="answers">
+            <p>A) Bounce rate</p>
+            <p>B) Conversion rate</p>
+            <p>C) Click-through rate</p>
+            <p>D) Exit rate</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(18)">Show Answer</button>
+          <p class="answer" id="answer-18">Correct Answer: B) Conversion rate</p>
+        </div>
+
+        <div class="question">
+          <p>4. What does cart abandonment rate indicate?</p>
+          <div class="answers">
+            <p>A) The number of customers who successfully complete a purchase</p>
+            <p>B) The percentage of shoppers who add items to their cart but do not complete the purchase</p>
+            <p>C) The total number of products sold</p>
+            <p>D) The average value of products in a customer's cart</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(19)">Show Answer</button>
+          <p class="answer" id="answer-19">Correct Answer: B) The percentage of shoppers who add items to their cart but do not complete the purchase</p>
+        </div>
+
+        <div class="question">
+          <p>5. Which of the following strategies is useful for optimizing product pages through performance testing?</p>
+          <div class="answers">
+            <p>A) A/B testing</p>
+            <p>B) Content marketing</p>
+            <p>C) Social media advertising</p>
+            <p>D) Influencer marketing</p>
+          </div>
+          <button class="reveal-answer" onclick="revealAnswer(20)">Show Answer</button>
+          <p class="answer" id="answer-20">Correct Answer: A) A/B testing</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function revealAnswer(questionNumber) {
+      document.getElementById('answer-' + questionNumber).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
